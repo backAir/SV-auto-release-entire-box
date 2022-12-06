@@ -41,150 +41,133 @@ typedef struct {
 	uint16_t duration;
 } command; 
 
-static const command step[] = {
-	// Setup controller
+
+
+
+static command step[] = {
+	// WAIT
 	{ NOTHING,  250 },
-	{ TRIGGERS,   5 },
-	{ NOTHING,  150 },
-	{ TRIGGERS,   5 },
-	{ NOTHING,  150 },
-	{ A,          5 },
-	{ NOTHING,  250 },
+	{ NOTHING,   10},
+	{ NOTHING,  5 },
+	{ NOTHING,   10},
+	{ NOTHING,  5 },
+	{ NOTHING,    5 },
+	{ NOTHING,  5 },
 
-	// Talk to Pondo
-	{ A,          5 }, // Start
-	{ NOTHING,   30 },
-	{ B,          5 }, // Quick output of text
-	{ NOTHING,   20 }, // Halloo, kiddums!
-	{ A,          5 }, // <- I'll try it!
-	{ NOTHING,   15 },
-	{ B,          5 },
-	{ NOTHING,   20 },
-	{ A,          5 }, // <- OK!
-	{ NOTHING,   15 },
-	{ B,          5 },
-	{ NOTHING,   20 }, // Aha! Play bells are ringing! I gotta set up the pins, but I'll be back in a flurry
-	{ A,          5 }, // <Continue>
-	{ NOTHING,  325 }, // Cut to different scene (Knock 'em flat!)
-	{ B,          5 },
-	{ NOTHING,   20 },
-	{ A,          5 }, // <Continue> // Camera transition takes place after this
-	{ NOTHING,   50 },
-	{ B,          5 },
-	{ NOTHING,   20 }, // If you can knock over all 10 pins in one roll, that's a strike
-	{ A,          5 }, // <Continue>
-	{ NOTHING,   15 },
-	{ B,          5 },
-	{ NOTHING,   20 }, // A spare is...
-	{ A,          5 }, // <Continue>
-	{ NOTHING,  100 }, // Well, good luck
-	{ A,          5 }, // <Continue>
-	{ NOTHING,  150 }, // Pondo walks away
 
-	// Pick up Snowball (Or alternatively, run to bail in case of a non-strike)
-	{ A,          5 },
-	{ NOTHING,   50 },
-	{ LEFT,      42 },
-	{ UP,        80 },
-	{ THROW,     25 },
+	//START
+	{ NOTHING,   20 },
+	{ RIGHT,          5 },
+	{ NOTHING,   20 },
+	{ A,          5 },  // SELECT
+	{ NOTHING,   10},
+	{ UP,          5 }, 
+	{ NOTHING,   10},
+	{ UP,          5 }, 
+	{ NOTHING,   10},
+	{ A,          5 }, // RELEASE
+	{ NOTHING,   20 },
+	{ UP,          5 }, 
+	{ NOTHING,   20},
+	{ A,          5 }, // CONFIRM
+	{ NOTHING,   90 },
+	{ A,          5 }, // BYE BYE !
 
-	// Non-strike alternative flow, cancel bail and rethrow
-	{ NOTHING,   30 },
-	{ B,          5 },
+		{ NOTHING,   20 },
+	{ RIGHT,          5 },
 	{ NOTHING,   20 },
-	{ B,          5 }, // I have to split dialogue (It's nothing)
-	{ NOTHING,   15 },
-	{ B,          5 },
+	{ A,          5 },  // SELECT
+	{ NOTHING,   10},
+	{ UP,          5 }, 
+	{ NOTHING,   10},
+	{ UP,          5 }, 
+	{ NOTHING,   10},
+	{ A,          5 }, // RELEASE
 	{ NOTHING,   20 },
-	{ B,          5 },
-	{ NOTHING,  450 },
-	{ B,          5 }, // Snowly moly... there are rules!
-	{ NOTHING,   20 },
-	{ B,          5 },
-	{ NOTHING,   20 },
-	{ B,          5 }, // Second dialogue
-	{ NOTHING,   20 },
-	{ DOWN,      10 }, // Return to snowball
-	{ NOTHING,   20 },
-	{ A,          5 }, // Pick up snowball, we just aimlessly throw it
-	{ NOTHING,   50 },
-	{ UP,        10 },
-	{ THROW,     25 },
+	{ UP,          5 }, 
+	{ NOTHING,   20},
+	{ A,          5 }, // CONFIRM
+	{ NOTHING,   90 },
+	{ A,          5 }, // BYE BYE !
 
-	// Back at main flow
-	{ NOTHING,  175 }, // Ater throw wait
-	{ B,          5 },
+		{ NOTHING,   20 },
+	{ RIGHT,          5 },
 	{ NOTHING,   20 },
-	{ B,          5 },
+	{ A,          5 },  // SELECT
+	{ NOTHING,   10},
+	{ UP,          5 }, 
+	{ NOTHING,   10},
+	{ UP,          5 }, 
+	{ NOTHING,   10},
+	{ A,          5 }, // RELEASE
 	{ NOTHING,   20 },
-	{ B,          5 },
+	{ UP,          5 }, 
+	{ NOTHING,   20},
+	{ A,          5 }, // CONFIRM
+	{ NOTHING,   90 },
+	{ A,          5 }, // BYE BYE !
+
+		{ NOTHING,   20 },
+	{ RIGHT,          5 },
 	{ NOTHING,   20 },
-	{ B,          5 },
+	{ A,          5 },  // SELECT
+	{ NOTHING,   10},
+	{ UP,          5 }, 
+	{ NOTHING,   10},
+	{ UP,          5 }, 
+	{ NOTHING,   10},
+	{ A,          5 }, // RELEASE
 	{ NOTHING,   20 },
-	{ B,          5 },
+	{ UP,          5 }, 
+	{ NOTHING,   20},
+	{ A,          5 }, // CONFIRM
+	{ NOTHING,   90 },
+	{ A,          5 }, // BYE BYE !
+
+		{ NOTHING,   20 },
+	{ RIGHT,          5 },
 	{ NOTHING,   20 },
-	{ B,          5 },
+	{ A,          5 },  // SELECT
+	{ NOTHING,   10},
+	{ UP,          5 }, 
+	{ NOTHING,   10},
+	{ UP,          5 }, 
+	{ NOTHING,   10},
+	{ A,          5 }, // RELEASE
 	{ NOTHING,   20 },
-	{ B,          5 },
+	{ UP,          5 }, 
+	{ NOTHING,   20},
+	{ A,          5 }, // CONFIRM
+	{ NOTHING,   90 },
+	{ A,          5 }, // BYE BYE !
+
+		{ NOTHING,   20 },
+	{ RIGHT,          5 },
 	{ NOTHING,   20 },
-	{ B,          5 },
+	{ A,          5 },  // SELECT
+	{ NOTHING,   10},
+	{ UP,          5 }, 
+	{ NOTHING,   10},
+	{ UP,          5 }, 
+	{ NOTHING,   10},
+	{ A,          5 }, // RELEASE
 	{ NOTHING,   20 },
-	{ B,          5 },
+	{ UP,          5 }, 
+	{ NOTHING,   20},
+	{ A,          5 }, // CONFIRM
+	{ NOTHING,   90 },
+	{ A,          5 }, // BYE BYE !
+
+
+		{ NOTHING,   20 }, // Go to next line
+	{ RIGHT,          5 },
 	{ NOTHING,   20 },
-	{ B,          5 },
-	{ NOTHING,   20 },
-	{ B,          5 },
-	{ NOTHING,   20 },
-	{ B,          5 },
-	{ NOTHING,   20 },
-	{ B,          5 },
-	{ NOTHING,   20 }, // To the rewards
-	{ B,          5 },
-	{ NOTHING,   20 },
-	{ B,          5 },
-	{ NOTHING,   20 },
-	{ B,          5 },
-	{ NOTHING,   20 },
-	{ B,          5 },
-	{ NOTHING,   20 },
-	
-	{ B,          5 }, // Wait for 450 cycles by bashing B (Like real players do!)
-	{ NOTHING,   20 },
-	{ B,          5 },
-	{ NOTHING,   20 },
-	{ B,          5 },
-	{ NOTHING,   20 },
-	{ B,          5 },
-	{ NOTHING,   20 },
-	{ B,          5 },
-	{ NOTHING,   20 },
-	{ B,          5 },
-	{ NOTHING,   20 },
-	{ B,          5 },
-	{ NOTHING,   20 },
-	{ B,          5 },
-	{ NOTHING,   20 },
-	{ B,          5 },
-	{ NOTHING,   20 },
-	{ B,          5 },
-	{ NOTHING,   20 },
-	{ B,          5 },
-	{ NOTHING,   20 },
-	{ B,          5 },
-	{ NOTHING,   20 },
-	{ B,          5 },
-	{ NOTHING,   20 },
-	{ B,          5 },
-	{ NOTHING,   20 },
-	{ B,          5 },
-	{ NOTHING,   20 },
-	{ B,          5 },
-	{ NOTHING,   20 },
-	{ B,          5 },
-	{ NOTHING,   20 },
-	{ B,          5 },
-	{ NOTHING,   20 } // Saving, intermission
+	{ DOWN,          5 }
 };
+
+static int line = 0;
+
+
 
 // Main entry point.
 int main(void) {
@@ -418,8 +401,20 @@ void GetNextReport(USB_JoystickReport_Input_t* const ReportData) {
 					ReportData->Button |= SWITCH_B;
 					break;
 
+				case X:
+					ReportData->Button |= SWITCH_X;
+					break;
+
+				case Y:
+					ReportData->Button |= SWITCH_Y;
+					break;
+
 				case R:
 					ReportData->Button |= SWITCH_R;
+					break;
+
+				case L:
+					ReportData->Button |= SWITCH_L;
 					break;
 
 				case THROW:
@@ -455,6 +450,12 @@ void GetNextReport(USB_JoystickReport_Input_t* const ReportData) {
 				// state = CLEANUP;
 
 				bufindex = 7;
+				line++;
+
+				if(line >= 5){
+					exit(0);
+				}
+				
 				duration_count = 0;
 
 				state = BREATHE;
