@@ -26,6 +26,7 @@ Script that dupes any items that can be held by a Pokémon
 - Go to your first box then leave the menu
 - Give the item you want to dupe to your duped legendary
 - Put your cursor on the duped legendary
+- Disconnect all controllers
 - Plug in the Teensy board
 - Enjoy !
 
